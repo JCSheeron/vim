@@ -154,8 +154,6 @@ set shiftwidth=4    " when reading, tabs are 4 spaces
 set softtabstop=4   " in insert mode, tabs are 4 spaces
 set tabstop=4
 
-au BufRead,BufNewFile Makefile* set noexpandtab
-
 " Searching
 "nnoremap / /\v
 "vnoremap / /\v
