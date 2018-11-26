@@ -1,0 +1,6 @@
+# we don't want to ignore this directory, just (most of) its contents.
+*
+
+# dont ignore the ignore file
+!.gitignore
+

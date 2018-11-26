@@ -1,0 +1,7 @@
+# we don't want to ignore this directory, just (most of) its contents.
+*
+# dont ignore the ignore file
+!.gitignore
+# dont ignore Vundle -- allow plugin managemnt to be easier on new install
+!Vundle.vim
+
