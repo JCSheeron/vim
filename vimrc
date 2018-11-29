@@ -271,7 +271,8 @@ Plugin 'StanAngeloff/php.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"conflicts with vim-pandoc
+"map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "let g:ycm_global_ycm_extra_conf = '.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_python_binary_path = '/usr/bin/python3'
 " as you type popup and sematic trigger (i.e. popup after typeing . or -> in
@@ -320,21 +321,40 @@ Plugin 'scrooloose/nerdcommenter'
 "Plugin 'vim-scripts/FuzzyFinder'
 
 " Plugin vim-markdown for markdown (markup) support
-Plugin 'gabrielelana/vim-markdown'
+" There are seveal options. I tried gabrielelana's version and couldn't tell 
+" it was/wasn't doing.  Plastic boy (uses tabular) is another version I didn't try.
+" Opted for vim-pandoc and associated syntax checker.
+" Plugin 'gabrielelana/vim-markdown'
+" Plugin 'godlygeek/tabular'
+" Plugin 'plasticboy/vim-markdown'
+
+" Integrate vim with pandoc converter and 
+" support for pandoc markdown.
+" Syntax checker isn't required, but is strongly recommended
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+" Enable pandoc functionality for markdown files while using the markdown
+" file type and syntax.
+" Setting `pandoc#filetypes#pandoc_markdown` to 0 will disable all pandoc
+" functionality for markdown files, unless "pandoc" exists in the
+" `pandoc#filetypes#handled` array.
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+"let g:pandoc#filetypes#pandoc_markdown = 0
 
 " Plugin vim-pencil for writing
 " NOTE: This will change wrapping behavior set with textwidth above
 Plugin 'reedes/vim-pencil'
 let g:pencil#mode_indicators= {'hard': 'pH', 'auto': 'pA', 'soft': 'pS', 'off': 'pencilOff',}
-" hard lien breaks or soft line wrap?
+" hard line breaks or soft line wrap?
 " set default, and then turn on pencil and init, based on file type
 let g:pencil#wrapModeDefault= 'hard' " default is hard. Change to 'soft' if that is what you want
 augroup pencil
   " first clear the command group
   autocmd!
-  " leave argument out of pencil#init for auto detect 
-  autocmd FileType markdown call pencil#init({'wrap': 'hard', 'textwidth': 82})
-  autocmd FileType text call pencil#init({'wrap': 'hard', 'textwidth': 82})
+  " leave argument out of pencil#init for auto detect
+  " Comment out -- using pandoc instead
+  "autocmd FileType markdown call pencil#init({'wrap': 'soft', 'autoformat': 0, 'textwidth': 82})
+  "autocmd FileType text call pencil#init({'wrap': 'hard', 'autoformat': 0, 'textwidth': 82})
 augroup END
 
 
@@ -428,8 +448,9 @@ func! Prose()
     setlocal noexpandtab
     " j moves down a line, gj moves down one display line
     " similar with k and gk for up
-    map j gj
-    map k gk
+    " vim-pencil should take care of this, so comment it out
+    "map j gj
+    "map k gk
     " spelling and thesaurus
     setlocal spell spelllang=en_us
     " set thesaurus+= <path to thesaurus file>

@@ -1,6 +1,11 @@
-" File ~/.vim/ftplugin/text.vim
+" File ~/.vim/ftplugin/markdown.vim
 "
+" key mappings
+" Reformat paragraph
+noremap <buffer> Q gq}
+
 " text specific settings
+setlocal colorcolumn=80
 setlocal textwidth=82
 setlocal tabstop=4
 " For the amount of space used for a new tab use shiftwidth.
@@ -9,14 +14,14 @@ setlocal softtabstop=4
 setlocal noexpandtab
 setlocal formatoptions-=o
 " use the par formatter
-set formatprg=par
+"setlocal formatprg=par
 setlocal wrap
 setlocal linebreak
 
 " Format options
 "set formatoptions=tcqrn1
 "tcq is default
-set formatoptions=tcqr
+setlocal formatoptions=tcqr
 
 " Turn off settings in 'formatoptions' relating to comment formatting.
 " - t : Auto-wrap text using textwidth
@@ -38,8 +43,8 @@ setlocal formatoptions+=l
 " j moves down a line, gj moves down one display line
 " similar with k and gk for up
 " comment out so they don't interfere with other buffers
+" Also, these are taken care of by vim-pencil
 " map j gj
-
 " map k gk
 "
 " spelling and thesaurus
