@@ -440,6 +440,11 @@ setlocal formatoptions-=o
 " Prose or Word Processor Mode
 func! Prose()
     echo "Enter Prose/Word Processor Mode (user function)"
+    " set file type to text so pandoc works
+    setf pandoc
+    " use pandoc and file type in place of vim-pencil
+    "call pencil#init({'wrap': 'soft', 'autoformat': 0, 'textwidth': 82})
+    "
     " formatoptions
     " l	Long lines are not broken in insert mode: When a line was longer than
     "   'textwidth' when the insert command started, Vim does not
@@ -459,9 +464,8 @@ func! Prose()
     setlocal formatprg=par
     setlocal wrap
     setlocal linebreak
-    call pencil#init({'wrap': 'soft', 'autoformat': 0, 'textwidth': 82})
 endfu
-command! WP call Prose()
+command! WP call Prose() " Word Processing
 command! PROSE call Prose()
 
 
