@@ -2,6 +2,7 @@
 "
 " key mappings
 " Reformat paragraph
+" may conflict with Ycm user map of <leader>g for goto definition
 noremap <buffer> Q gq}
 
 " text specific settings

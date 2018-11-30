@@ -456,9 +456,10 @@ func! Prose()
     " set thesaurus+= <path to thesaurus file>
     " set complete+=s
     " use the par formatter
-    set formatprg=par
+    setlocal formatprg=par
     setlocal wrap
     setlocal linebreak
+    call pencil#init({'wrap': 'soft', 'autoformat': 0, 'textwidth': 82})
 endfu
 command! WP call Prose()
 command! PROSE call Prose()

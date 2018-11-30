@@ -1,5 +1,8 @@
 " File ~/.vim/ftplugin/python.vim
 "
+" key mappings
+"conflicts with vim-pandoc
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " Python specific settings
 setlocal textwidth=100
 setlocal tabstop=4

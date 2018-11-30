@@ -1,5 +1,8 @@
 " File ~/.vim/ftplugin/cpp.vim
 "
+" key mappings
+"conflicts with vim-pandoc
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " cpp specific settings
 setlocal textwidth=100
 setlocal tabstop=2

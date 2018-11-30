@@ -6,4 +6,4 @@
 " key mappings
 " Reformat paragraph
 " commented out, as it is done in specific .vim files.
-"noremap <buffer> Q gq}
+" noremap <buffer> Q gq}
