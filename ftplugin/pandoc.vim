@@ -7,3 +7,11 @@
 " Reformat paragraph
 " commented out, as it is done in specific .vim files.
 " noremap <buffer> Q gq}
+"
+" highlight a double space at the end of a line.
+" Markdown interprets this as a line break.
+" Not really needed, because Pandoc puts a <CR> symbol. Included here
+" incase you don't like the default Pandoc behavior.
+" highlight MarkdownTrailingSpaces ctermbg=green guibg=green
+" syntax match MarkdownTrailingSpaces "\s\{2}$"
+

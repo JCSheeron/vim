@@ -5,6 +5,15 @@
 " may conflict with Ycm user map of <leader>g for goto definition
 noremap <buffer> Q gq}
 
+" highlight double spaces.
+" Note, Markdown interprets this as a line break.
+" When using pandoc, this will get overridden by pandoc, so if it is wanted, 
+" put something similar in .vim/ftplugin/pandoc.vim
+highlight TrailingSpaces ctermbg=green guibg=green
+"syntax match TrailingSpaces "\s\{2}$"
+" match two or more consecutive spaces
+syntax match TrailingSpaces "\ \{2,}"
+
 " text specific settings
 setlocal colorcolumn=80
 setlocal textwidth=82

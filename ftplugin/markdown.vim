@@ -5,6 +5,13 @@
 " may conflict with Ycm user map of <leader>g for goto definition
 noremap <buffer> Q gq}
 
+" highlight a double space at the end of a line.
+" Markdown interprets this as a line break.
+" When using pandoc, this will get overridden by pandoc, so if it is wanted, 
+" put something similar in .vim/ftplugin/pandoc.vim
+highlight MarkdownTrailingSpaces ctermbg=green guibg=green
+syntax match MarkdownTrailingSpaces "\s\{2}$"
+
 " text specific settings
 setlocal colorcolumn=80
 setlocal textwidth=82
