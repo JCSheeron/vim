@@ -9,10 +9,11 @@ noremap <buffer> Q gq}
 " Note, Markdown interprets this as a line break.
 " When using pandoc, this will get overridden by pandoc, so if it is wanted, 
 " put something similar in .vim/ftplugin/pandoc.vim
-highlight TrailingSpaces ctermbg=green guibg=green
+highlight TrailingSpaces ctermbg=darkblue guibg=darkblue
 "syntax match TrailingSpaces "\s\{2}$"
 " match two or more consecutive spaces
-syntax match TrailingSpaces "\ \{2,}"
+" Note that vim does not understand character classes
+syntax match TrailingSpaces "\s\{2,}"
 
 " text specific settings
 setlocal colorcolumn=80
