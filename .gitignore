@@ -6,5 +6,6 @@
 !/bundle/.gitignore
 !/bundle/placeholder.txt
 !/bundle/Vundle.vim/
+!/bundle/Vundle.vim/*
 # leave the other folder specifics to the .gitignore in the folder
 
