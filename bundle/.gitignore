@@ -5,3 +5,4 @@
 !placeholder.txt
 # don't ignore vundle for ease of portability
 !Vundle.vim/
+!Vundle.vim/*
