@@ -1,11 +1,4 @@
 # ignore .orig files
 *.orig
 # We want the bundle folder, but want to ignore most of the contents.
-/bundle/*
-# don't ignore this stuff in bundle
-!/bundle/.gitignore
-!/bundle/placeholder.txt
-!/bundle/Vundle.vim/
-!/bundle/Vundle.vim/*
-# leave the other folder specifics to the .gitignore in the folder
-
+# Deal with this in the bundle/.gitignore file
