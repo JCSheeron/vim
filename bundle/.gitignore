@@ -3,7 +3,7 @@
 # dont ignore the ignore file
 !.gitignore
 # dont ignore Vundle -- allow plugin managemnt to be easier on new install
-!Vundle.vim
+!Vundle.vim/
 # don't ignore the place holder file so it gets put in the repo
 !placeholder.txt
 

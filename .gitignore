@@ -1,2 +1,6 @@
 # ignore .orig files
 *.orig
+# We want the bundle folder, but want to ignore the contents.
+# Actually, only part of this folder  will get ignored, per the .gitignore file
+# int the folder.  This is here mostly as a way to document what we want.
+/bundle/*
