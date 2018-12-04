@@ -55,7 +55,16 @@ setlocal formatoptions=tcqrl
 "
 "
 " spelling and thesaurus
+" exclude acronyms (all upper case, at least 3 letters. 
+"syn match AcronymNoSpell '\<\(\u\|\d\)\{3,}s\?\>' contains=@NoSpell
 setlocal spell spelllang=en_us
+
 " set thesaurus+= <path to thesaurus file>
 " set complete+=s
+
+" load auto corrections (Auto Complete List ACL) as abbreviations
+if filereadable(expand('$HOME/.vim/abbreviations/AclAbbreviations.vim'))
+  source $HOME/.vim/abbreviations/AclAbbreviations.vim
+endif
+
 

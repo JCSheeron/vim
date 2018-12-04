@@ -84,10 +84,6 @@ set hidden
 " keep the cursor visible within 3 lines when scrolling
 set scrolloff=3
 
-" turn on spell check for text files
-"au BufRead,BufNewFile *.txt set spell
-" turn on spell check
-set spell spelllang=en_us
 
 " underline the line the cursor is on
 " Cursor highlight taken care of by color scheme
@@ -189,6 +185,22 @@ let g:solarized_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
 colorscheme solarized
+" set spelling errors to use underlines rather than red squiggly in terminals.
+" The red squiggly does not show up in terminals.
+" from solarized.vim color scheme file
+"exe "hi! SpellBad"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_red
+"exe "hi! SpellCap"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_violet
+"exe "hi! SpellRare"      .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_cyan
+"exe "hi! SpellLocal"     .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_yellow
+hi SpellBad cterm=underline term=underline ctermfg=red
+hi SpellCap cterm=underline term=underline ctermfg=magenta
+hi SpellRare cterm=underline term=underline ctermfg=cyan
+hi SpellLocal cterm=underline term=underline ctermfg=yellow
+" set spelling language, but turn spelling check off by default.
+" Allow ftplugin/.vim files turn it on if wanted.
+set spelllang=en_us
+set nospell
+
 
 " set the color theme to wombat256
 "colorscheme wombat256
@@ -464,6 +476,10 @@ func! Prose()
     " setlocal formatprg=par
     setlocal wrap
     setlocal linebreak
+    "load auto corrections (Auto Complete List ACL) as abbreviations
+    if filereadable(expand('$HOME/.vim/abbreviations/AclAbbreviations.vim'))
+      source $HOME/.vim/abbreviations/AclAbbreviations.vim
+    endif
 endfu
 command! WP call Prose() " Word Processing
 command! PROSE call Prose()

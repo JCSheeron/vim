@@ -15,3 +15,11 @@
 " highlight MarkdownTrailingSpaces ctermbg=green guibg=green
 " syntax match MarkdownTrailingSpaces "\s\{2}$"
 
+" turn off pandoc spell check favor of native vim spell check
+let g:pandoc#spell#enabled=0
+
+" exclude acronyms (all upper case, at least 3 letters. 
+" syn match AcronymNoSpell '\<\(\u\|\d\)\{3,}s\?\>' contains=@NoSpell
+setlocal spell spelllang=en_us
+
+
