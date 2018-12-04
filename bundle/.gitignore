@@ -1,9 +1,8 @@
-# we don't want to ignore this directory, just (most of) its contents.
-*
-# dont ignore the ignore file
+# ignore the contents, but then add back in the bits we want to track
+/*
+# don't ignore the .gitignore or the place holder file.
 !.gitignore
-# dont ignore Vundle -- allow plugin managemnt to be easier on new install
-!Vundle.vim
-# don't ignore the place holder file so it gets put in the repo
 !placeholder.txt
-
+# don't ignore vundle for ease of portability
+!Vundle.vim/
+!Vundle.vim/*

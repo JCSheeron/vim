@@ -220,8 +220,8 @@ Plugin 'gmarik/Vundle.vim'
 
 "****  start plugin defintion
 " Foldin help
-Plugin 'tmhedberg/SimpylFold'
-let g:SimpylFold_docstring_preview=1
+"Plugin 'tmhedberg/SimpylFold'
+"let g:SimpylFold_docstring_preview=1
 
 " nerdtree file tree
 Plugin 'scrooloose/nerdtree'
@@ -236,7 +236,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'Buffergator'
 
 " file searching
-Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
 
 " vim session management
 Plugin 'vim-misc'
