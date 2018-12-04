@@ -453,7 +453,7 @@ func! Prose()
     setlocal noexpandtab
     " j moves down a line, gj moves down one display line
     " similar with k and gk for up
-    " vim-pencil should take care of this, so comment it out
+    " vim-pencil/pandoc should take care of this, so comment it out
     "map j gj
     "map k gk
     " spelling and thesaurus
@@ -461,7 +461,7 @@ func! Prose()
     " set thesaurus+= <path to thesaurus file>
     " set complete+=s
     " use the par formatter
-    setlocal formatprg=par
+    " setlocal formatprg=par
     setlocal wrap
     setlocal linebreak
 endfu
