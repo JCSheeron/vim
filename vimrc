@@ -187,7 +187,7 @@ let g:solarized_termtrans=1
 colorscheme solarized
 " set spelling errors to use underlines rather than red squiggly in terminals.
 " The red squiggly does not show up in terminals.
-" from solarized.vim color scheme file
+" from solarized.vim color scheme file (for reference, not to be uncommented)
 "exe "hi! SpellBad"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_red
 "exe "hi! SpellCap"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_violet
 "exe "hi! SpellRare"      .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_cyan
@@ -200,7 +200,6 @@ hi SpellLocal cterm=underline term=underline ctermfg=yellow
 " Allow ftplugin/.vim files turn it on if wanted.
 set spelllang=en_us
 set nospell
-
 
 " set the color theme to wombat256
 "colorscheme wombat256
@@ -469,7 +468,8 @@ func! Prose()
     "map j gj
     "map k gk
     " spelling and thesaurus
-    setlocal spell spelllang=en_us
+    setlocal spelllang=en_us
+    setlocal spell 
     " set thesaurus+= <path to thesaurus file>
     " set complete+=s
     " use the par formatter
