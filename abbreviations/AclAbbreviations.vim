@@ -624,6 +624,7 @@
   iabbrev tath that
   iabbrev tecnical technical
   iabbrev teh the
+  iabbrev Teh The
   iabbrev tehy they
   iabbrev termoil turmoil
   iabbrev tghe the
