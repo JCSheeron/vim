@@ -106,6 +106,7 @@ iabbrev befoer before
 iabbrev beggining beginning
 iabbrev begining beginning
 iabbrev beginining beginning
+iabbrev being bieng
 iabbrev beleiev believe
 iabbrev beleieve believe
 iabbrev beleif belief
@@ -209,6 +210,8 @@ iabbrev cutsomer customer
 iabbrev cutsomers customers
 iabbrev cxan can
 iabbrev danceing dancing
+iabbrev datablock data block
+iabbrev datatable data table
 iabbrev dcument document
 iabbrev deatils details
 iabbrev decison decision
@@ -360,6 +363,7 @@ iabbrev hewas	he was
 iabbrev hge he
 iabbrev hismelf himself
 iabbrev highschool high school
+iabbrev highspeed high speed
 iabbrev hlep help
 iabbrev hsa has
 iabbrev hsi his
@@ -444,6 +448,9 @@ iabbrev liuke like
 iabbrev liveing living
 iabbrev loev love
 iabbrev lonly lonely
+iabbrev loggin logging
+iabbrev loggign logging
+iabbrev lookin looking
 iabbrev lookign looking
 iabbrev maintenence maintenance
 iabbrev makeing making

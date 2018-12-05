@@ -39,7 +39,7 @@ set ruler
 set laststatus=2 
 
 " last line
-" showmode i snot needed with lightline
+" showmode is not needed with lightline
 "set showmode
 set noshowmode
 set showcmd
@@ -83,7 +83,6 @@ set hidden
 
 " keep the cursor visible within 3 lines when scrolling
 set scrolloff=3
-
 
 " underline the line the cursor is on
 " Cursor highlight taken care of by color scheme
@@ -129,10 +128,19 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" map the underscore = to a + so when using +/- to navigate up and down a line,
+" the shift is not needed for the +
+nnoremap = +
+
 " opening additional buffers (files)
+" These make it easier to open a file in the current directory by
+" prepending the current directory
 map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>sp :sp <C-R>=expand("%:p:h") . "/" <CR>
+" assume vertical split unless sp is used.
 map <leader>s :vsp <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>vsp :vsp <C-R>=expand("%:p:h") . "/" <CR>
 
 " List contents of all registers (that typically contain pasteable text).
 " i.e. shortcut for :reg/:registers
@@ -368,8 +376,6 @@ augroup pencil
   "autocmd FileType text call pencil#init({'wrap': 'hard', 'autoformat': 0, 'textwidth': 82})
 augroup END
 
-
-
 " configurable status line
 Plugin 'itchyny/lightline.vim'      
     let g:lightline = {
@@ -396,6 +402,55 @@ Plugin 'itchyny/lightline.vim'
     \ 'component_type': { 'syntastic': 'error' }
     \}
 
+" distraction free writing
+" Goyo
+Plugin 'junegunn/goyo.vim'
+" disable fancy lightline staus line, but turn on minimum stuff
+function! s:goyo_enter()
+  "call lightline#disable()
+  set showmode
+endfunction
+
+function! s:goyo_leave()
+  "call lightline#enable()
+  set noshowmode
+  " reset spelling colors
+  hi SpellBad cterm=underline term=underline ctermfg=red
+  hi SpellCap cterm=underline term=underline ctermfg=magenta
+  hi SpellRare cterm=underline term=underline ctermfg=cyan
+  hi SpellLocal cterm=underline term=underline ctermfg=yellow
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+Plugin 'junegunn/limelight.vim'
+" Limelight need to be able to calculate teh dimming down of surrounding
+" paragraphs. It can't do this by default with the solarized color scheme.
+" Help it by giving it these definitions/parameters
+  " Color name (:help cterm-colors) or ANSI code
+  let g:limelight_conceal_ctermfg = 'gray'
+  let g:limelight_conceal_ctermfg = 240
+  
+  " Color name (:help gui-colors) or RGB color
+  let g:limelight_conceal_guifg = 'DarkGray'
+  let g:limelight_conceal_guifg = '#777777'
+  
+  " Default: 0.5
+  let g:limelight_default_coefficient = 0.7
+  
+  " Number of preceding/following paragraphs to include (default: 0)
+  let g:limelight_paragraph_span = 1
+  
+  " Beginning/end of paragraph
+  "   When there's no empty line between the paragraphs
+  "   and each paragraph starts with indentation
+  let g:limelight_bop = '^\s'
+  let g:limelight_eop = '\ze\n^\s'
+  
+  " Highlighting priority (default: 10)
+  "   Set it to -1 not to overrule hlsearch
+  let g:limelight_priority = -1
 
 "Plugin 'Lokaltog/vim-easymotion'    
 "Plugin 'tpope/vim-surround'         
@@ -480,9 +535,17 @@ func! Prose()
     if filereadable(expand('$HOME/.vim/abbreviations/AclAbbreviations.vim'))
       source $HOME/.vim/abbreviations/AclAbbreviations.vim
     endif
+
+    " Turn on Goyo and set the width
+    Goyo 90
+
+    " Turn on Limelight
+    "Limelight
+
 endfu
 command! WP call Prose() " Word Processing
 command! PROSE call Prose()
+
 
 
 
