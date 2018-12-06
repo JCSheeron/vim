@@ -388,9 +388,11 @@ Plugin 'itchyny/lightline.vim'
     \ },
     \ 'component': {
     \ 'filename': '%F',
-    \ 'spell': '%{&spell?&spelllang:"no spell"}',
     \ 'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
     \ 'pencilMode': '%{PencilMode()}'
+    \ },
+    \ 'component_function': {
+    \ 'spell': 'SpellInfo'
     \ },
     \ 'component_visible_condition': {
     \   'readonly': '(&filetype!="help"&& &readonly)',
@@ -401,6 +403,11 @@ Plugin 'itchyny/lightline.vim'
     \ 'component_expand': { 'syntastic': 'SyntasticStatuslineFlag' },
     \ 'component_type': { 'syntastic': 'error' }
     \}
+" use this funcion to display the spelling info in the status line.
+" Spelling language and spelling file it is specified
+function! SpellInfo()
+    return &spell ? &spellfile != '' ? 'L:' . &spelllang . ' F:' . &spellfile : 'L:' . &spelllang : 'no spell'
+endfunction
 
 " distraction free writing
 " Goyo
