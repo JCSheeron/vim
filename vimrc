@@ -414,11 +414,13 @@ endfunction
 Plugin 'junegunn/goyo.vim'
 " disable fancy lightline staus line, but turn on minimum stuff
 function! s:goyo_enter()
+  " goyo disables lightline, so no need to call
   "call lightline#disable()
   set showmode
 endfunction
 
 function! s:goyo_leave()
+  " goyo re-enables lightline, so no need to call
   "call lightline#enable()
   set noshowmode
   " reset spelling colors
