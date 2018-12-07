@@ -1,0 +1,5 @@
+# ignore alphAbbrev folder contents, then add some stuff in
+/alphAbbrev/*
+# keep the python files
+!/alphAbbrev/*.py
+
