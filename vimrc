@@ -541,8 +541,8 @@ func! Prose()
     setlocal wrap
     setlocal linebreak
     "load auto corrections (Auto Complete List ACL) as abbreviations
-    if filereadable(expand('$HOME/.vim/abbreviations/AclAbbreviations.vim'))
-      source $HOME/.vim/abbreviations/AclAbbreviations.vim
+    if filereadable(expand('$HOME/.vim/abbreviations/aclAbbrev.vim'))
+      source $HOME/.vim/abbreviations/aclAbbrev.vim
     endif
 
     " Turn on Goyo and set the width
