@@ -1,0 +1,7 @@
+# ignore most of this directory, except for a few bits
+/*
+# don't ignore the ignore file
+!.gitignore
+# don't ignore the python source files
+!*.py
+
