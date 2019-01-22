@@ -512,6 +512,15 @@ setlocal formatoptions-=o
 
 " ---------------------- USER FUNCTIONS ----------------------
 "
+" Don't modify mode
+func! NoChange()
+  echo "Make file not modifyable and read only."
+  setlocal noma
+  setlocal ro
+endfu
+command! READONLY call NoChange()
+
+
 " Prose or Word Processor Mode
 func! Prose()
     echo "Enter Prose/Word Processor Mode (user function)"
